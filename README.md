@@ -5,8 +5,8 @@ Welcome to the Library Management System! This project aims to streamline and au
 Project Structure
 The project is organized into two main branches:
 
-master: Contains the backend code developed using Django.
-frontend: Contains the frontend code developed using Angular.
+master: Contains the backend code developed using Django in a separate file.
+master: Contains the frontend code developed using Angular.
 Features
 The Library Management System provides the following features:
 
