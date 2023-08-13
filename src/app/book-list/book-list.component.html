@@ -1,0 +1,60 @@
+<div>
+    <h2>Book List</h2>
+    <nav>
+      <a href="members">membership</a>
+      <a href="transactions">Transactions</a>
+    </nav>
+    <!-- <app-input-search-panel [searchList]="searchList" (selectionChanged)="onSelect($event)" (InputValue)="searchTitle($event)"></app-input-search-panel> -->
+  
+    <!-- <div>
+      <label for="amount">Amount:</label>
+      <input type="number" id="amount" [(ngModel)]="amount">
+    </div>
+  
+    <div>
+      <label for="title">Title:</label>
+      <input type="text" id="title" [(ngModel)]="title">
+    </div>
+  
+    <div>
+      <label for="authors">Authors:</label>
+      <input type="text" id="authors" [(ngModel)]="authors">
+    </div>
+  
+    <div>
+      <label for="isbn">ISBN:</label>
+      <input type="number" id="isbn" [(ngModel)]="isbn">
+    </div>
+  
+    <div>
+      <label for="publisher">Publisher:</label>
+      <input type="text" id="publisher" [(ngModel)]="publisher">
+    </div>
+  
+    <button (click)="fetchBooks(amount, title, authors, isbn, publisher)">Fetch Books</button> -->
+
+
+  
+    <ul>
+      <li *ngFor="let book of books">
+        <div>
+          <span (click)="toggleBookDetails(book)">{{ book.title }} </span>by {{ book.authors }}
+          <span *ngIf="book.available; else notAvailable">Available</span>
+          <ng-template #notAvailable>Not Available</ng-template>
+        </div>
+        <div *ngIf="showDetails">
+          Publisher: {{ book.publisher }}
+          <br>
+          ISBN: {{ book.isbn }}
+          <br>
+          Book ID: {{ book.id }}
+          <br>
+          <button [routerLink]="'/rentalbook'" *ngIf="book.available">Rent</button>
+        </div>
+      </li>
+    </ul>
+    
+    
+
+  </div>
+  

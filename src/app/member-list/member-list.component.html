@@ -1,0 +1,29 @@
+<h2>Member Registration</h2>
+<form [formGroup]="memberForm" (ngSubmit)="registerMember()">
+  <label for="memberName">Member Name:</label>
+  <input type="text" id="memberName" formControlName="name">
+  <br>
+  <label for="memberEmail">Member Email:</label>
+  <input type="email" id="memberEmail" formControlName="email">
+  <br>
+  <button type="submit">Register Member</button>
+</form>
+
+<h2>Member History</h2>
+<ul>
+  <li *ngFor="let member of members">
+    <div (click)="toggleMemberDetails(member)">
+      {{ member.name }}
+    </div>
+    <div *ngIf="member.showDetails">
+    <br>
+      email: {{ member.email.join(', ') || 'None' }}
+      <br>
+      Issued Books: {{ member.issuedBooks.join(', ') || 'None' }}
+      <br>
+      Debt: {{ member.debt }} Rs
+      <br>
+      Returned Books: {{ member.returnedBooks.join(', ') || 'None' }}
+    </div>
+  </li>
+</ul>

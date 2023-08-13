@@ -1,0 +1,16 @@
+<div class="search-dropdown">
+    <div class="searchOpt">
+      <input class="floating-input" type="text" name="city" placeholder="Search Here"
+        (input)="onInput($event.target['value'])" (click)="onClick()"
+        (keyup)="onKeyUp($event)" [(ngModel)]="selectedSuggestion"
+        (blur)="onBlur()" />
+    </div>
+    <div class="dropdown" *ngIf="searching">
+      <div *ngFor="let suggestion of searchList"
+        [ngClass]="{'selected': (selectedSuggestionIndex>=0) && (isSuggestionSelected(suggestion) || isSuggestionSelected1(suggestion))}"
+        (click)="selectSuggestion(suggestion)">
+        {{ suggestion }}
+      </div>
+    </div>
+  </div>
+  
